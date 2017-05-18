@@ -30,8 +30,10 @@ import com.sap.vean.cf.samples.messagingapi.model.PublishResult;
 public class MessagingAPIService {
 
 	private static final Logger log = LoggerFactory.getLogger(MessagingAPIService.class);
+	public static final String QUEUE_PREFIX = "gms-";
 	
 	public ConnectionFactory getConnectionFactory() {
+		
 		//Get enviromental variables 
 		JSONObject env = new JSONObject(System.getenv("VCAP_SERVICES"));
 		JSONArray rmqInstances = env.getJSONArray("rabbitmq");	
@@ -54,7 +56,7 @@ public class MessagingAPIService {
 		log.debug("Running Service");
 	
 		MessageResult result = new MessageResult();
-		String fullQueueName = "gms-" + queue;
+		String fullQueueName = QUEUE_PREFIX + queue;
 		
 		boolean ackB = true;
 		if(ack != null && ack.equals("false")){
@@ -122,7 +124,7 @@ public class MessagingAPIService {
 		log.debug("Running Service");
 	
 		PublishResult rs = new PublishResult();
-		String fullQueueName = "gms-" + queue;
+		String fullQueueName = QUEUE_PREFIX + queue;
 		
 		try {
 						

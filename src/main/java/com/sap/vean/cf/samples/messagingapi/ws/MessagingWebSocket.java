@@ -15,6 +15,7 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import com.sap.vean.cf.samples.messagingapi.MessagingAPIService;
 
 public class MessagingWebSocket extends TextWebSocketHandler {
 
@@ -25,18 +26,15 @@ public class MessagingWebSocket extends TextWebSocketHandler {
 
 	@Override
 	public void handleTextMessage(WebSocketSession session, TextMessage message) {
-
-		String queue = "test";
-		String uri = session.getUri().toString();
 		
-		uri = uri.substring(uri.lastIndexOf("/messaging/"));
-		queue = uri.substring(0, uri.lastIndexOf("/ws"));
+		String uri = session.getUri().toString();		
+		String queue = uri.substring(uri.lastIndexOf(MessagingWebSocketConfig.PATH_PREFIX) + MessagingWebSocketConfig.PATH_PREFIX.length());
+		queue = queue.substring(0, queue.lastIndexOf(MessagingWebSocketConfig.PATH_SUFFIX));
 		
-		String fullQueueName = "gms-" + queue;
+		String fullQueueName = MessagingAPIService.QUEUE_PREFIX + queue;
 				
 		try {
-	
-			
+		
 			//Create and Publish Message
 			byte[] messageBodyBytes = message.getPayload().getBytes("UTF-8");
 			chl.basicPublish("", fullQueueName, null, messageBodyBytes);
@@ -65,15 +63,18 @@ public class MessagingWebSocket extends TextWebSocketHandler {
 		
 		try {
 
-			String queue = "test";
-			String fullQueueName = "gms-" + queue;
+			String uri = session.getUri().toString();		
+			String queue = uri.substring(uri.lastIndexOf(MessagingWebSocketConfig.PATH_PREFIX) + MessagingWebSocketConfig.PATH_PREFIX.length());
+			queue = queue.substring(0, queue.lastIndexOf(MessagingWebSocketConfig.PATH_SUFFIX));
+			
+			String fullQueueName = MessagingAPIService.QUEUE_PREFIX + queue;
 			conn = getConnectionFactory().newConnection();
 
 			// Create channel and declare queue
 			chl = conn.createChannel();
 			chl.queueDeclare(fullQueueName, true, false, false, null);
 
-			chl.basicConsume(fullQueueName, new DirectDeliveryConsumer(chl, session));
+			chl.basicConsume(fullQueueName, true, new DirectDeliveryConsumer(chl, session));
 
 		} catch (IOException e) {
 			log.error(e.toString());

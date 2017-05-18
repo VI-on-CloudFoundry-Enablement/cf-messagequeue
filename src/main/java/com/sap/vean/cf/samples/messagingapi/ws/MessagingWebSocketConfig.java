@@ -9,14 +9,17 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 
 @Configuration
 @EnableWebSocket
-public class MessagingWebSocketConfig implements WebSocketConfigurer{
+public class MessagingWebSocketConfig implements WebSocketConfigurer {
 
-	 public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {		
-		 registry.addHandler(myHandler(), "/messaging/*/ws").setAllowedOrigins("*");
+	public static final String PATH_PREFIX = "/messaging/";
+	public static final String PATH_SUFFIX = "/ws";
+
+	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
+		registry.addHandler(myHandler(), PATH_PREFIX + "*" + PATH_SUFFIX).setAllowedOrigins("*");
 	}
 
-	 @Bean
-	    public WebSocketHandler myHandler() {
-	        return new MessagingWebSocket();
-	    }
+	@Bean
+	public WebSocketHandler myHandler() {
+		return new MessagingWebSocket();
+	}
 }
