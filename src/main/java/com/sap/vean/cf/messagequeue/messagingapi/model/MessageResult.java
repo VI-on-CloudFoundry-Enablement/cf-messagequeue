@@ -1,4 +1,4 @@
-package com.sap.vean.cf.samples.messagingapi.model;
+package com.sap.vean.cf.messagequeue.messagingapi.model;
 
 import java.util.List;
 

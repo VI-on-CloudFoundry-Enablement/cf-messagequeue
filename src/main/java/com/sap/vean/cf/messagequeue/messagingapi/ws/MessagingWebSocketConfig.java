@@ -1,4 +1,4 @@
-package com.sap.vean.cf.samples.messagingapi.ws;
+package com.sap.vean.cf.messagequeue.messagingapi.ws;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

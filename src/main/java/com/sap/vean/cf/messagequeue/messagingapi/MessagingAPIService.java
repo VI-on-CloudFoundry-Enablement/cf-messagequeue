@@ -1,4 +1,4 @@
-package com.sap.vean.cf.samples.messagingapi;
+package com.sap.vean.cf.messagequeue.messagingapi;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,8 +21,8 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.GetResponse;
-import com.sap.vean.cf.samples.messagingapi.model.MessageResult;
-import com.sap.vean.cf.samples.messagingapi.model.PublishResult;
+import com.sap.vean.cf.messagequeue.messagingapi.model.MessageResult;
+import com.sap.vean.cf.messagequeue.messagingapi.model.PublishResult;
 
 @Controller
 @EnableAutoConfiguration

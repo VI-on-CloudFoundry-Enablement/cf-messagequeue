@@ -1,4 +1,4 @@
-package com.sap.vean.cf.samples.messagingapi.ws;
+package com.sap.vean.cf.messagequeue.messagingapi.ws;
 
 import java.io.IOException;
 

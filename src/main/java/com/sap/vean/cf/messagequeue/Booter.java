@@ -1,4 +1,4 @@
-package com.sap.vean.cf.samples;
+package com.sap.vean.cf.messagequeue;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;

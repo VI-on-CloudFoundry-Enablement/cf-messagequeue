@@ -1,4 +1,4 @@
-package com.sap.vean.cf.samples.messagingapi.ws;
+package com.sap.vean.cf.messagequeue.messagingapi.ws;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
@@ -15,7 +15,7 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-import com.sap.vean.cf.samples.messagingapi.MessagingAPIService;
+import com.sap.vean.cf.messagequeue.messagingapi.MessagingAPIService;
 
 public class MessagingWebSocket extends TextWebSocketHandler {
 
