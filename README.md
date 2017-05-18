@@ -1,4 +1,4 @@
-# CloudFoundry Example Using Rabbit MQ
+# CloudFoundry Messaging API
 
 
 ## Prepare and Deploy

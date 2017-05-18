@@ -1,7 +1,6 @@
 package com.sap.vean.cf.samples.messagingapi.ws;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.concurrent.TimeoutException;
 
 import org.json.JSONArray;
@@ -16,13 +15,6 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.Consumer;
-import com.rabbitmq.client.DefaultConsumer;
-import com.rabbitmq.client.Envelope;
-import com.rabbitmq.client.GetResponse;
-import com.rabbitmq.client.ShutdownSignalException;
-import com.rabbitmq.client.AMQP.BasicProperties;
-import com.sap.vean.cf.samples.messagingapi.MessagingAPIService;
 
 public class MessagingWebSocket extends TextWebSocketHandler {
 

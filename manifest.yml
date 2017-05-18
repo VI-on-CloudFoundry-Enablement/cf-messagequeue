@@ -1,8 +1,8 @@
 ---
 applications:
-- name: cf-samples-java-rabbit
-  host: d043918trial-cf-samples-java-rabbit
-  path: target/cf-samples-java-rabbit.war
+- name: cf-messagequeue
+  host: d043918trial-cf-messagequeue
+  path: target/cf-messagequeue.war
   memory: 256M
   instances: 1
   services:

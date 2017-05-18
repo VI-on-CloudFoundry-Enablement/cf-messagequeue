@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.sap.vean</groupId>
-  <artifactId>cf-samples-java-rabbit</artifactId>
+  <artifactId>cf-messagequeue</artifactId>
   <packaging>war</packaging>
   <version>1.0</version>
   <name>CloudFoundry Samples - Rabbit</name>
@@ -53,7 +53,7 @@
   </dependencies>
   	
   <build>
-    <finalName>cf-samples-java-rabbit</finalName>
+    <finalName>cf-messagequeue</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.tomcat.maven</groupId>
