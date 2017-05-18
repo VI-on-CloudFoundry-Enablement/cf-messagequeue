@@ -1,7 +1,7 @@
 # CloudFoundry Messaging API
 
 This module provides a flexible message queue API that can be called via a REST service or via a websocket.
-- Receive messages from queue https://<host>/messaging/<queue>/consume
+- Receive messages from queue https://<host>/messaging/<queue>/receive
 - Publish messages to queue https://<host>/messaging/<queue>/publish
 - Open WebSocket on queue wss://<host>/messaging/<queue>/ws
 

@@ -50,11 +50,9 @@ public class MessagingAPIService {
 		return factory;
 	}
 	
-	@RequestMapping(path = "/consume", method = RequestMethod.GET)
+	@RequestMapping(path = "/receive", method = RequestMethod.GET)
 	public @ResponseBody MessageResult consumeAllMessage(@PathVariable("queue") String queue, @RequestParam(required=false,name="ack") String ack, @RequestParam(required=false,name="fullresponse") String fullresponse) {
 
-		log.debug("Running Service");
-	
 		MessageResult result = new MessageResult();
 		String fullQueueName = QUEUE_PREFIX + queue;
 		
@@ -121,8 +119,6 @@ public class MessagingAPIService {
 	@RequestMapping(path = "/publish", method = RequestMethod.POST)
 	public @ResponseBody PublishResult publishMessage(@PathVariable("queue") String queue, @RequestBody String message) {
 
-		log.debug("Running Service");
-	
 		PublishResult rs = new PublishResult();
 		String fullQueueName = QUEUE_PREFIX + queue;
 		
