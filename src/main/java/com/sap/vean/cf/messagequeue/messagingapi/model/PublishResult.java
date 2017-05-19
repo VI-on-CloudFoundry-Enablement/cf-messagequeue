@@ -1,7 +1,5 @@
 package com.sap.vean.cf.messagequeue.messagingapi.model;
 
-import java.util.List;
-
 public class PublishResult {
 
 	private boolean status;
